@@ -1,0 +1,114 @@
+@use '../../styles/index.scss' as *;
+
+
+.login {
+    padding-top: 90px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: map-get($dark-variant, '200');
+    color: set-text-color(map-get($dark-variant, '200'));
+    width: 100%;
+    font-family: $work-sans;
+
+    .hidden {
+        display: none;
+    }
+
+    .card {
+        background-color: $white;
+        padding: 1.5rem;
+        width: 550px;
+        border-radius: 5px;
+        @include mobile () {
+            width: 90%;
+        }
+        
+
+        &_title {
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 5;
+            width: 100%;
+
+            &_group {
+                position: relative;
+            }
+
+            &_control {
+                padding: 14px;
+                outline: none;
+                border: 0;
+                font-size: 18px;
+                display: block;
+                width: 100%;
+                margin: 1rem 0;
+                border-radius: 3px;
+                border: 1px solid map-get($map: $gray-variant, $key: '400');
+            }
+
+            &_btn {
+                border: none;
+                width: 100%;
+                background-color: $primary;
+                color: set-text-color($primary);
+                height: 40px;
+                margin: 1rem 0;
+                border-radius: 3px;
+                font-size: 16px;
+                font-family: 500;
+
+                &:hover {
+                    background-color: darken($color: $primary, $amount: 10);
+                    cursor: pointer;
+                }
+            }
+
+            &_checks {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                input[type="checkbox"] {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: .5rem;
+                }
+            }
+
+            &_eye {
+                position: absolute;
+                top: 33px;
+                right: 23px;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            &_other {
+                display: flex;
+                gap: 1rem;
+                a {
+                    color: $primary;
+                }
+            }
+
+            &_avatar {
+                width: 48px;
+                height: 48px;
+                color: $primary;
+            }
+
+            &_upload {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}

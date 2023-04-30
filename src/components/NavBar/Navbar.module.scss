@@ -1,0 +1,129 @@
+@use '../../styles/index.scss' as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: $primary;
+  color: set-text-color($primary);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font: 600 $work-sans;
+  z-index: 1;
+
+
+  .mobile_ul {
+    display: none;
+  
+    @include mobile() {
+      position: absolute;
+      display: block;
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      gap: 1rem;
+      color: $dark;
+      height: 100vh;
+      top: 70px;
+      left: 0;
+      z-index: 2;
+  
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: $dark;
+        width: 50%;
+        height: 100%;
+        padding: 1rem 3rem;
+  
+        /* Add transition */
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
+  
+    &.visible {
+      ul {
+        /* Change display to block on active state */
+        display: flex;
+        /* Fade in and slide down */
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+  
+  &_title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .mobile_menu {
+      display: none;
+      font-size: 24px;
+      @include mobile() {
+        display: block;
+      }
+    }
+  }
+
+  @include mobile() {
+    padding: 1rem;
+  }
+
+  @include tablet() {
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  &_general {
+    display: flex;
+    gap: 5rem;
+
+    @include mobile() {
+      display: none;
+    }
+  }
+
+  &_auth {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .btn {
+    width: 100px;
+    background-color: $white;
+    color: set-text-color($white);
+    border-radius: 5px;
+    height: 40px;
+  }
+  .cart {
+    position: relative;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      width: 24px;
+    }
+
+    &_count {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      font-size: smaller;
+      background-color: $red;
+      color: #fff;
+      padding: 5px;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      text-align: center;
+    }
+  }
+}

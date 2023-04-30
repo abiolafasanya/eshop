@@ -1,0 +1,130 @@
+@forward './var';
+@forward './color';
+@forward './_func.scss';
+
+@use './var' as *;
+@use './_color' as *;
+@use './_func.scss' as *;
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $work-sans;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  outline: none;
+  background-color: none;
+  border: none;
+}
+
+.success-alert {
+  background-color: lighten($color: $success, $amount: 45);
+  padding: 14px 16px;
+  border: 1px solid $success;
+  width: 90%;
+  max-width: 447px;
+  @include tablet() {
+    max-width: 360px;
+  }
+  @include mobile() {
+    max-width: 100%;
+  }
+  color: $success;
+  border-radius: 4px;
+}
+
+.error-alert {
+  background-color: lighten($color: $error, $amount: 45);
+  padding: 14px 16px;
+  border: 1px solid $error;
+  width: 90%;
+  max-width: 447px;
+  @include tablet() {
+    max-width: 360px;
+  }
+  @include mobile() {
+    max-width: 100%;
+  }
+  color: $error;
+  border-radius: 4px;
+}
+
+%btn-shared {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+.btn {
+  &-light {
+    @extend %btn-shared;
+    background-color: $light;
+    color: set-text-color($light);
+
+    &:hover {
+      background-color: darken($light, 10%);
+    }
+  }
+  &-light {
+    @extend %btn-shared;
+    background-color: $light;
+    color: $secondary;
+    border: 1px solid $secondary;
+  }
+  &-dark {
+    @extend %btn-shared;
+    background-color: $dark;
+    color: set-text-color($dark);
+
+    &:hover {
+      background-color: lighten($dark, 10%);
+    }
+  }
+  &-secondary {
+    @extend %btn-shared;
+    background-color: $dark;
+    color: set-text-color($dark);
+
+    &:hover {
+      background-color: lighten($dark, 10%);
+    }
+  }
+  &-success {
+    @extend %btn-shared;
+    background-color: $success;
+    color: set-text-color($success);
+  }
+
+  &-primary {
+    @extend %btn-shared;
+    background-color: $primary;
+    color: set-text-color($primary);
+  }
+  &-error {
+    @extend %btn-shared;
+    background-color: $error;
+    color: set-text-color($error);
+  }
+}

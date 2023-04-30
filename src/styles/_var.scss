@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Avenir-regular';
+  src: local('Avenir-regular'),
+    url('../../assets/fonts/Avenir_Next_Pro/AvenirNextLTPro-Regular.otf')
+      format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir-medium';
+  src: local('Avenir-medium'),
+    url('../assets/fonts/Avenir_Next_Pro/AvenirNextLTPro-Medium.otf')
+      format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir-bold';
+  src: local('Avenir-bold'),
+    url('../assets/fonts/Avenir_Next_Pro/../assets/fonts/Work_Sans/WorkSans-VariableFont_wght.ttfAvenirNextLTPro-Demi.otf')
+      format('truetype');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: local('Work Sans'),
+    url('../assets/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf')
+      format('truetype');
+}
+
+$avenir-regular: 'Avenir-regular', sans-serif;
+$avenir-medium: 'Avenir-medium', sans-serif;
+$avenir-bold: 'Avenir-bold', sans-serif;
+$work-sans: 'Work Sans', sans-serif;
+
+
+// import '@fontsource/roboto/300.css';
+// import '@fontsource/roboto/400.css';
+
+// import '@fontsource/roboto/700.css';
+

@@ -1,0 +1,175 @@
+@use '../../styles/index.scss'as *;
+
+.container {
+  background-image: map-get($dark-variant, '200');
+  color: set-text-color(map-get($dark-variant, '200'));
+  padding: 1rem 3rem;
+  padding-top: 90px;
+
+  @include mobile() {
+    padding: 60px 1rem;
+  }
+
+  min-height: 100vh;
+  height: 100%;
+  padding-bottom: 0;
+  box-sizing: border-box;
+
+  .checkout {
+    // width: 75%;
+    // margin: auto;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    margin: 3rem;
+    @include box-shadow();
+    border-radius: 1px solid map-get($primary-variant, $key: '200');
+
+    @include mobile() {
+      flex-direction: column;
+    }
+
+    &_form {
+      padding: 1rem;
+      width: 50%;
+      background-color: map-get($map: $gray-variant, $key: '300');
+      min-height: 400px;
+      border-radius: 5px 0 0 5px;
+
+      @include mobile() {
+        width: 100%;
+      }
+
+      &_group {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+
+
+        h3 {
+          text-align: center;
+          margin: 1rem auto;
+        }
+
+        input {
+          display: block;
+          border: none;
+          outline: none;
+          appearance: none;
+          height: 40px;
+          padding: 1rem;
+          border-radius: 3px;
+          border: 1px solid map-get($map: $gray-variant, $key: '400');
+        }
+
+        select {
+          display: block;
+          width: 100%;
+          height: 40px;
+          padding: 1px 1rem;
+          appearance: none;
+          outline: none;
+          height: 40px;
+          border-radius: 3px;
+          border: 1px solid map-get($map: $gray-variant, $key: '400');
+
+          & option {
+            padding: 10px;
+          }
+        }
+
+        .dropdown {
+          position: relative;
+          width: 100%;
+
+        }
+
+        .dropdown_icon {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          color: map-get($map: $primary-variant, $key: '500');
+        }
+      }
+
+
+
+    }
+
+    &_form_btn {
+      background-color: map-get($primary-variant, '500');
+      color: set-text-color(map-get($primary-variant, '500'));
+      width: 100%;
+      margin: 1rem 0;
+
+      &:hover {
+        background-color: map-get($primary-variant, '600');
+      }
+    }
+
+    &_paystack {
+      background-color: map-get($primary-variant, '500');
+      color: set-text-color(map-get($primary-variant, '500'));
+      width: 100%;
+      margin: 1rem 0;
+      height: 40px;
+      border-radius: 3px;
+
+      &:hover {
+        background-color: map-get($primary-variant, '600');
+      }
+    }
+
+
+    &_card {
+      background-color: map-get($primary-variant, '500');
+      width: 50%;
+      min-height: 400px;
+      border-radius: 0 5px 5px 0;
+      padding: 1rem;
+      color: set-text-color(map-get($primary-variant, '500'));
+
+      .checkout_status {
+        width: 100%;
+        background-color: map-get($primary-variant, $key: '100');
+        padding: 1rem;
+        border-radius: 3px;
+      }
+
+      @include mobile() {
+        width: 100%;
+      }
+
+      h3 {
+        text-align: center;
+        margin: 1rem auto;
+      }
+
+      &_item {
+        display: flex;
+        margin: 1rem;
+        justify-content: space-between;
+      }
+
+      &_group {
+        margin-top: 1rem;
+        padding: 0 1rem;
+      }
+
+
+    }
+  }
+}
+
+
+.form_error_msg {
+  font-size: 12px;
+  color: $red;
+  // background-color: red;
+  // padding: 10px;
+}
+
+.border {
+  background-color: map-get($map: $primary-variant, $key: '400');
+}

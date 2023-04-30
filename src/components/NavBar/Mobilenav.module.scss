@@ -1,0 +1,70 @@
+@use '../../styles/index.scss' as *;
+
+// .mobile {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 1rem 3rem;
+//   background-color: $primary;
+//   color: set-text-color($primary);
+//   position: fixed;
+//   top: 0;
+//   width: 100%;
+//   font: 600 $work-sans;
+//   z-index: 1;
+
+//   h2 {
+//     font-size: 24px;
+//   }
+
+//   ul {
+//     display: flex;
+//     gap: 5rem;
+//   }
+
+//   &_auth {
+//     display: flex;
+//     align-items: center;
+//     gap: 1rem;
+//   }
+//   .btn {
+//     padding: 8px 16px;
+//     width: 120px;
+//     background-color: $white;
+//     color: set-text-color($white);
+//     border-radius: 5px;
+//     height: 44px;
+//   }
+//   .cart {
+//     padding: 8px;
+//     border-radius: 25rem;
+//     background-color: $white;
+//     position: relative;
+
+//     img {
+//       object-fit: cover;
+//       object-position: center;
+//       width: 24px;
+//     }
+
+//     &_count {
+//       position: absolute;
+//       bottom: -5px;
+//       right: -5px;
+//       font-size: smaller;
+//       background-color: $red;
+//       color: #fff;
+//       padding: 5px;
+//       height: 20px;
+//       width: 20px;
+//       border-radius: 50%;
+//       text-align: center;
+//     }
+//   }
+// }
+
+.mobile {
+  background-color: red;
+  width: 100%;
+}
+
