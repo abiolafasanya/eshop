@@ -3,7 +3,7 @@ import { PropTypes } from '../types';
 
 const AlertContext = createContext<PropTypes>({});
 
-export const AlertProvider: React.FC<PropTypes> = ({ children }) => {
+export const AlertProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
       const [alert, setAlert] = useState({});
       return (
         <AlertContext.Provider value={{ alert, setAlert }}>

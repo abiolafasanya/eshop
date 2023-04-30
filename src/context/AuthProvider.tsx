@@ -2,7 +2,6 @@ import React, { useState, createContext, useEffect } from 'react';
 
 export interface AuthContextProps {
   auth: Auth;
-  setAuth: React.Dispatch<React.SetStateAction<Auth>>;
   handleSetAuth: (auth: Auth) => void;
   handleLogout: () => void;
 }
@@ -19,19 +18,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [auth, setAuth] = useState(() => {
-    const localAuth = JSON.parse(localStorage.getItem(`auth`)) as Auth;
-    return localAuth ? localAuth : { isLoggedIn: false, token: '', user: null };
+    const localAuthString = localStorage.getItem('auth');
+    const localAuth = localAuthString
+      ? (JSON.parse(localAuthString) as Auth)
+      : { isLoggedIn: false, token: '', user: null };
+    return localAuth as Auth;
   });
 
   useEffect(() => {
     setAuth((auth) => {
-      const localAuth = JSON.parse(localStorage.getItem(`auth`)) as Auth;
-      return localAuth ? localAuth : auth;
+      const localAuthString = localStorage.getItem('auth');
+      const localAuth = localAuthString
+        ? (JSON.parse(localAuthString) as Auth)
+        : auth;
+      return localAuth;
     });
   }, []);
 
   const handleSetAuth = (auth: Auth) => {
-    const prev = JSON.parse(localStorage.getItem('auth'));
+    const localAuthString = localStorage.getItem('auth');
+    const prev = localAuthString;
     if (prev) {
       localStorage.removeItem('auth');
     }
@@ -41,13 +47,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const handleLogout = () => {
     localStorage.removeItem('auth');
-    setAuth({ isLoggedIn: false, token: '', user: null });
+    setAuth({
+      isLoggedIn: false,
+      token: '',
+      user: { email: '', id: '', username: '' },
+    });
   };
 
   return (
-    <AuthContext.Provider
-      value={{ auth, handleSetAuth, setAuth, handleLogout }}
-    >
+    <AuthContext.Provider value={{ auth, handleSetAuth, handleLogout }}>
       {children}
     </AuthContext.Provider>
   );

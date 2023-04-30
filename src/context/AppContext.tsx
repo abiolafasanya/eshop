@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext } from 'react';
-import useCart from '../hooks/useCart';
 
 type AppTypes = {
   toggleTheme: () => void;

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Login, Home, Register } from './Routes';
 import Public from './components/Layout/Public';

@@ -38,7 +38,7 @@ export interface Iprops extends React.PropsWithChildren {
 
   export type itemType = {
     id: string;
-    product: productType;
+    item: productType;
     quantity: number;
   }
   

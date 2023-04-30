@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import styles from './Cart.module.scss';
 import Item from './Item';
 import product from '../../api/product';
-import { cartType, CartItemProps } from '../../types';
+import { productType, CartItemProps } from '../../types';
 
 
 const CartItem = ({ id, quantity }: CartItemProps) => {
-  const [products, setProducts] = useState([] as cartType[]);
+  const [products, setProducts] = useState([] as productType[]);
   useEffect(() => {
     const controller = new AbortController();
     controller.signal;
