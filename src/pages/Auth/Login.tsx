@@ -7,6 +7,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAuth from '../../hooks/useAuth';
 import { AxiosError } from 'axios';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const Login = () => {
   const [showPassword, setShowPasswords] = useState(false);
@@ -21,7 +23,7 @@ const Login = () => {
     }
   }, [auth?.isLoggedIn]);
 
-  async function loginHandler(e: FormEvent<HTMLFormElement>) {
+  async function registerHandler(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const input = e.target as HTMLInputElement & {
@@ -85,7 +87,7 @@ const Login = () => {
     <main className={styles.login}>
       <div className={styles.card}>
         <h2 className={styles.card_title}>Login to your account</h2>
-        <form onSubmit={loginHandler} className={styles.form}>
+        <form onSubmit={registerHandler} className={styles.form}>
           <div className={styles.form_group}>
             <input
               type="email"
@@ -101,16 +103,17 @@ const Login = () => {
               placeholder="Password *"
               id="password"
             />
+
             {showPassword ? (
-              <AiOutlineEyeInvisible
-                onClick={() => setShowPasswords((bool) => !bool)}
-                className={styles.form_eye}
+              <Visibility 
+              onClick={() => setShowPasswords((bool) => !bool)}
+              className={styles.form_eye}
               />
             ) : (
-              <AiOutlineEye
-                onClick={() => setShowPasswords((bool) => !bool)}
-                className={styles.form_eye}
-              />
+              <VisibilityOff 
+             onClick={() => setShowPasswords((bool) => !bool)}
+             className={styles.form_eye}
+             />
             )}
           </div>
 
