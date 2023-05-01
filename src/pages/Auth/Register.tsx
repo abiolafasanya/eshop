@@ -53,7 +53,7 @@ if (file) {
       return;
     }
     
-    const ENDPOINT = `${import.meta.env.VITE_SERVER_API_URL}/auth/signup` || 'http://localhost:5000/auth/signup'
+    const ENDPOINT = `${import.meta.env.VITE_SERVER_API_URL}/auth/signup`;
     const {data, status} = await Axios.post(ENDPOINT, body)
     
     if(data.error){

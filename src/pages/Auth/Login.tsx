@@ -42,8 +42,8 @@ const Login = () => {
         return;
       }
 
-    const ENDPOINT = `${import.meta.env.VITE_SERVER_API_URL}/auth` || 'http://localhost:5000/auth'
-
+    const ENDPOINT = `${import.meta.env.VITE_SERVER_API_URL}/auth`
+      console.log(ENDPOINT, 'checking endpoint')
       const response = await Axios.post(ENDPOINT, body);
 
       if (response.status === 200 || response.status === 201) {
