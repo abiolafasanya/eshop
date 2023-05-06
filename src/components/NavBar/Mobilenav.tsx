@@ -3,16 +3,23 @@ import styles from './Navbar.module.scss';
 import useApp from '../../hooks/useApp';
 
 const Mobilenav = () => {
-  const {openMenu} = useApp()
+  const { openMenu, toggleMenu } = useApp();
 
-  
+  const menus = [
+    { name: 'products', link: '/products' },
+    { name: 'categories', link: '/categories' },
+    { name: 'contact', link: '/contact' },
+  ];
+
   return (
     <div className={`${styles.mobile_ul} ${openMenu ? styles.visible : ''}`}>
-      <ul className={''}>
-      <Link to="/products">Product</Link>
-      <Link to="/categories">Categories</Link>
-      <Link to="">Contact</Link>
-    </ul>
+      <menu className={''}>
+        {menus.map((menu) => (
+          <Link key={menu.name} to={menu.link} onClick={toggleMenu}>
+            {menu.name}
+          </Link>
+        ))}
+      </menu>
     </div>
   );
 };

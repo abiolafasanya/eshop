@@ -5,11 +5,10 @@ import useApp from '../../hooks/useApp';
 import Mobilenav from './Mobilenav';
 import { Button, Divider, MenuItem } from '@mui/material';
 import Badge, { BadgeProps } from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
+import styled from '@mui/material/styles/styled';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import useAuth from '../../hooks/useAuth';
-import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -52,85 +51,85 @@ const NavBar = () => {
   };
 
   return (
-      <nav className={styles.navbar}>
-        <div className={styles.navbar_title}>
-          <MenuOutlinedIcon className={styles.mobile_menu} onClick={toggleMenu} />
-          <Link to="/">
-            <h2>FastStore</h2>
-          </Link>
+    <nav className={styles.navbar}>
+      <div className={styles.navbar_title}>
+        <MenuOutlinedIcon className={styles.mobile_menu} onClick={toggleMenu} />
+        <Link to="/">
+          <h2>FastStore</h2>
+        </Link>
+      </div>
+      {openMenu && <Mobilenav />}
+      <ul className={styles.navbar_general}>
+        <Link to="/products">Product</Link>
+        <Link to="/categories">Categories</Link>
+        <Link to="">Contact</Link>
+      </ul>
+      <div className={styles.navbar_auth}>
+        <div className={styles.cart} onClick={handleCart}>
+          <IconButton aria-label="cart" style={{ backgroundColor: '#fff' }}>
+            <StyledBadge badgeContent={cartQuantity} color="secondary">
+              <ShoppingCartIcon />
+            </StyledBadge>
+          </IconButton>
         </div>
-        {openMenu && <Mobilenav />}
-        <ul className={styles.navbar_general}>
-          <Link to="/products">Product</Link>
-          <Link to="/categories">Categories</Link>
-          <Link to="">Contact</Link>
-        </ul>
-        <div className={styles.navbar_auth}>
-          <div className={styles.cart} onClick={handleCart}>
-            <IconButton aria-label="cart" style={{ backgroundColor: '#fff' }}>
-              <StyledBadge badgeContent={cartQuantity} color="secondary">
-                <ShoppingCartIcon />
-              </StyledBadge>
-            </IconButton>
-          </div>
-          {!auth?.isLoggedIn ? (
-            <Button
-              variant="outlined"
-              style={{ backgroundColor: '#fff' }}
-              onClick={() =>
-                navigate('/login', { state: location.pathname, replace: true })
-              }
-            >
-              Login
-            </Button>
-          ) : (
-            <Box>
-              <Tooltip title="Account settings">
-                <IconButton
-                  onClick={handleClick}
-                  size="small"
-                  sx={{ ml: 2 }}
-                  aria-controls={open ? 'account-menu' : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? 'true' : undefined}
-                >
-                  <Avatar>{auth?.user?.username}</Avatar>
-                </IconButton>
-              </Tooltip>
-              <Menu
-                anchorEl={anchorEl}
-                id="account-menu"
-                open={open}
-                onClose={handleClose}
-                onClick={handleClose}
-                PaperProps={PaperProps}
-                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        {!auth?.isLoggedIn ? (
+          <Button
+            variant="outlined"
+            style={{ backgroundColor: '#fff' }}
+            onClick={() =>
+              navigate('/login', { state: location.pathname, replace: true })
+            }
+          >
+            Login
+          </Button>
+        ) : (
+          <div>
+            <Tooltip title="Account settings">
+              <IconButton
+                onClick={handleClick}
+                size="small"
+                sx={{ ml: 2 }}
+                aria-controls={open ? 'account-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
               >
-                <MenuItem onClick={handleClose}>
-                  <Avatar /> Profile
-                </MenuItem>
-                <MenuItem onClick={handleClose}>
-                  <Avatar /> My account
-                </MenuItem>
-                <Divider />
-                <MenuItem onClick={handleClose}>
-                  <ListItemIcon>
-                    <Settings fontSize="small" />
-                  </ListItemIcon>
-                  Settings
-                </MenuItem>
-                <MenuItem onClick={() => handleLogout()}>
-                  <ListItemIcon>
-                    <Logout fontSize="small" />
-                  </ListItemIcon>
-                  Logout
-                </MenuItem>
-              </Menu>
-            </Box>
-          )}
-        </div>
-      </nav>
+                <Avatar>{auth?.user?.username}</Avatar>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              anchorEl={anchorEl}
+              id="account-menu"
+              open={open}
+              onClose={handleClose}
+              onClick={handleClose}
+              PaperProps={PaperProps}
+              transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+              anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+            >
+              <MenuItem onClick={handleClose}>
+                <Avatar /> Profile
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+                <Avatar /> My account
+              </MenuItem>
+              <Divider />
+              <MenuItem onClick={handleClose}>
+                <ListItemIcon>
+                  <Settings fontSize="small" />
+                </ListItemIcon>
+                Settings
+              </MenuItem>
+              <MenuItem onClick={() => handleLogout()}>
+                <ListItemIcon>
+                  <Logout fontSize="small" />
+                </ListItemIcon>
+                Logout
+              </MenuItem>
+            </Menu>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 
