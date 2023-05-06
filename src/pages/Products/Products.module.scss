@@ -29,6 +29,53 @@
     flex-direction: column;
     margin: 1rem 0;
     align-items: center;
+
+    .search_wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      .searchBox {
+        width: 456px;
+        display: relative;
+        box-sizing: border-box;
+
+        .searchStyle {
+          width: 100%;
+        }
+
+        .suggestion {
+          position: absolute;
+          width: 456px;
+          margin: 5px 0;
+          background-color: #fff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          // gap: ;
+          
+          .link {
+            // margin: .5rem 0;
+            padding: .5rem;
+            text-decoration: none;
+            color: inherit;
+            font-size: 14px;
+            border-radius: 3px;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.068);
+            }
+          }
+        }
+      }
+
+      .sortStyle {
+        width: 150px;
+      }
+    }
     
     .product {
       width: 100%;
