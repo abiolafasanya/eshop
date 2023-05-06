@@ -10,6 +10,7 @@ import '@fontsource/roboto/500.css';
 import { productType } from '../../types';
 import { useEffect, useState } from 'react';
 import { CATEGORY, SORT, sortProduct } from './request';
+import { Link } from 'react-router-dom';
 
 type SortOption = keyof typeof SORT;
 const sorts: SortOption[] = ['A-Z', 'Z-A', 'Lowest Price', 'Highest Price'];
@@ -24,6 +25,8 @@ const Featured = () => {
   } = useCart();
   const [products, setProducts] = useState([] as productType[]);
   const [trigger, setTrigger] = useState(0);
+  const [suggestions, setSuggestions] = useState<productType[]>([]);
+  const [text, setText] = useState('')
 
   useEffect(() => {
     const data = singleCategory;
@@ -39,36 +42,54 @@ const Featured = () => {
   const handleSort = (option: SortOption) => {
     const data = sortProduct(products, SORT[option]);
     setTrigger((trigger) => trigger + 1);
-    console.log(data, 'couunt: ',trigger)
+    console.log(data, 'couunt: ', trigger);
     setProducts(() => data);
   };
 
-  const handleSearch = (text: string) => {
-    let matches :unknown[] = [];
-    if(text.length > 0) {
-      matches = products.filter(product => {
-        const regex = new RegExp(`${text}`, "gi")
-        return product.title.match(regex)
-      })
+  const handleInputChange = (input: string) => {
+    console.log(input);
+    let matches: productType[];
+    if (input.length > 0) {
+      matches = products.filter((product) => {
+        const regex = new RegExp(`${input}`, 'gi');
+        return product.title.match(regex);
+      });
+      setSuggestions(matches);
+      console.log(matches);
     }
+    setText(input)
   };
 
   return (
     <div className={styles.featured}>
       <div className={styles.search_wrapper}>
-        <TextField
-          id="outlined-basic"
-          className={styles.searchStyle}
-          type="search"
-          placeholder="search product"
-          variant="outlined"
-        />
+        <div className={styles.searchBox}>
+          <TextField
+            id="outlined-basic"
+            className={styles.searchStyle}
+            type="search"
+            placeholder="search product"
+            variant="outlined"
+            value={text}
+            onChange={({ target }) => handleInputChange(target.value)}
+          />
+          {text.length > 0 && suggestions.length > 0 && (
+            <div className={styles.suggestion}>
+              {suggestions.map((suggestion) => (
+                <Link className={styles.link} to={`/product/${suggestion.id}`} key={suggestion?.id}>
+                  {suggestion?.title}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
         <TextField
           id="sort"
           select
           label="Sort"
           defaultValue="A-Z"
           variant="filled"
+          className={styles.sortStyle}
         >
           {sorts.map((option) => (
             <MenuItem

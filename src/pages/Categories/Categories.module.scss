@@ -1,99 +1,147 @@
 @use '../../styles/index.scss'as *;
 
 .container {
-    background-image: map-get($dark-variant, '200');
-    color: set-text-color(map-get($dark-variant, '200'));
-    padding: 1rem 3rem;
-    padding-top: 90px;
+  background-image: map-get($dark-variant, '200');
+  color: set-text-color(map-get($dark-variant, '200'));
+  padding: 1rem 3rem;
+  padding-top: 90px;
 
-    @include mobile() {
-        padding: 90px 1rem;
+  @include mobile() {
+    padding: 90px 1rem;
+  }
+
+  min-height: 100vh;
+  height: 100%;
+  padding-bottom: 0;
+  box-sizing: border-box;
+
+
+
+  .featured {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    align-items: center;
+
+    .tab {
+      display: flex;
+      gap: 1rem;
+      margin: 3rem auto;
     }
 
-    min-height: 100vh;
-    height: 100%;
-    padding-bottom: 0;
-    box-sizing: border-box;
+    .search_wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
 
+      .searchBox {
+        width: 456px;
+        display: relative;
+        box-sizing: border-box;
 
-
-    .featured {
-        display: flex;
-        flex-direction: column;
-        margin: 2rem 0;
-        align-items: center;
-    
-        .tab {
-          display: flex;
-          gap: 1rem;
-          margin: 3rem auto;
-        }
-        
-        .product {
+        .searchStyle {
           width: 100%;
+        }
+
+        .suggestion {
+          position: absolute;
+          width: 456px;
+          margin: 5px 0;
+          background-color: #fff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+          z-index: 2;
           display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 2rem;
-    
-          .card_item {
-            width: 320px;
-          @include box-shadow();
-    
-            @include mobile() {
-              width: 100%;
-            }
-            background-color: $white;
-            padding: 2rem;
-            margin: 10px 0;
-            border-radius: 5px;
-    
-            h2 {
-              font-weight: 500;
-              font-size: 16px;
-              height: 50px;
-            }
-            center
-            h3 {
-              font-weight: 600;
-              font-size: 16px;
-              line-height: 1.6;
-            }
-    
-            .bottom {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-top: 1rem;
-    
-              button {
-                background-color: $primary;
-                color: set-text-color($primary);
-                height: 40px;
-                border-radius: 5px;
-    
-                &:hover {
-                  background-color: darken($color: $primary, $amount: 10);
-                  cursor: pointer;
-                }
-              }
-            }
-          }
+          flex-direction: column;
+          // gap: ;
           
-          img {
-            width: 100%;
-            min-height: 250px;
-            max-height: 250px;
-            padding: 1rem;
-            object-fit: cover;
-             object-position: center;
-             transition: transform 0.5s;
-    
+          .link {
+            // margin: .5rem 0;
+            padding: .5rem;
+            text-decoration: none;
+            color: inherit;
+            font-size: 14px;
+            border-radius: 3px;
+
             &:hover {
-              transform: scale(1.2);
+              background-color: rgba(0, 0, 0, 0.068);
             }
           }
         }
       }
+
+      .sortStyle {
+        width: 150px;
+      }
+    }
+
+    .product {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      .card_item {
+        width: 320px;
+        @include box-shadow();
+
+        @include mobile() {
+          width: 100%;
+        }
+
+        background-color: $white;
+        padding: 2rem;
+        margin: 10px 0;
+        border-radius: 5px;
+
+        h2 {
+          font-weight: 500;
+          font-size: 16px;
+          height: 50px;
+        }
+
+        center h3 {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 1.6;
+        }
+
+        .bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 1rem;
+
+          button {
+            background-color: $primary;
+            color: set-text-color($primary);
+            height: 40px;
+            border-radius: 5px;
+
+            &:hover {
+              background-color: darken($color: $primary, $amount: 10);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      img {
+        width: 100%;
+        min-height: 250px;
+        max-height: 250px;
+        padding: 1rem;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.5s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
 }
