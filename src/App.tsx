@@ -5,6 +5,7 @@ import Checkout from './pages/Checkout/Checkout';
 import Protected from './components/Layout/Protected';
 import Products from './pages/Products/Products';
 import Categories from './pages/Categories/Categories';
+import ProductPage from './pages/Products/component/ProductPage';
 
 // Create a client
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/products" element={<Products />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="/product/:id" element={<ProductPage />} />
         </Route>
         <Route element={<Protected />}></Route>
       </Routes>

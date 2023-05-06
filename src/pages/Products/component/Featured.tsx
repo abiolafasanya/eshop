@@ -20,7 +20,7 @@ const Featured = () => {
   const [text, setText] = useState('');
   const [products, setProducts] = useState(data as productType[]);
   const [suggestions, setSuggestions] = useState<productType[]>([]);
-  const [isSorted, setIsSorted] = useState(SORT['A-Z']);
+  const [sort, setSort] = useState(SORT['A-Z']);
 
   const addCartHandler = (product: { id: string }) => {
     toast.info('Item added to cart');
@@ -30,14 +30,12 @@ const Featured = () => {
   useEffect(() => {
     const sortedProduct = sortProduct(data);
     setProducts(() => sortedProduct);
-    setIsSorted(isSorted);
-  }, [data, isSorted]);
+  }, [data, sort]);
 
   const handleSort = (option: SortOption) => {
     console.log(option);
     const data = sortProduct(products, SORT[option]);
-    // console.log(data);
-    setIsSorted(SORT[option]);
+    setSort(SORT[option]);
     setProducts(() => data);
   };
 
