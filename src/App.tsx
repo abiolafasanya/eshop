@@ -3,6 +3,8 @@ import { Login, Home, Register } from './Routes';
 import Public from './components/Layout/Public';
 import Checkout from './pages/Checkout/Checkout';
 import Protected from './components/Layout/Protected';
+import Products from './pages/Products/Products';
+import Categories from './pages/Categories/Categories';
 
 // Create a client
 
@@ -15,6 +17,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/categories" element={<Categories />} />
         </Route>
         <Route element={<Protected />}></Route>
       </Routes>

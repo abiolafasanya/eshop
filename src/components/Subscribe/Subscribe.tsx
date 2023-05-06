@@ -1,5 +1,5 @@
-import { formatCurrency } from '../../../utils/formatter';
-import styles from '../Home.module.scss';
+import styles from './Subscribe.module.scss';
+import { formatCurrency } from '../../utils/formatter';
 
 const Subscribe = () => {
   return (

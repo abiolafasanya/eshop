@@ -63,11 +63,6 @@ const Hero = () => {
           Get ready for the biggest sale of 2023! Enjoy a whopping 35% off on
           our latest fashion collection.
         </h1>
-        <p>
-          With our mega deals, you can grab your favorite styles at unbeatable
-          prices. Don't miss out on this limited-time offer and upgrade your
-          wardrobe today!"
-        </p>
       </section>
     </div>
   );

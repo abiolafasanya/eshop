@@ -1,3 +1,4 @@
+import { productType } from '../types';
 import Axios from './Axios';
 
 async function getProducts() {
@@ -16,6 +17,13 @@ async function findCategories() {
   const { data } = await Axios.get('https://fakestoreapi.com/products/categories');
   if (data.error) return;
   return data;
+}
+
+
+async function getCategory(params: string) {
+  const { data } = await Axios.get(`https://fakestoreapi.com/products/category/${params}`);
+  if (data.error) return;
+  return data as productType[];
 }
 
 export const getStatesInNigeria = async () => {
@@ -40,7 +48,8 @@ export default {
   getProducts,
   findProduct,
   findCategories,
-  getStatesInNigeria
+  getStatesInNigeria,
+  getCategory
 };
 
 

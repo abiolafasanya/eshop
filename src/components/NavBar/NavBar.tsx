@@ -61,7 +61,7 @@ const NavBar = () => {
         </div>
         {openMenu && <Mobilenav />}
         <ul className={styles.navbar_general}>
-          <Link to="/product">Product</Link>
+          <Link to="/products">Product</Link>
           <Link to="/categories">Categories</Link>
           <Link to="">Contact</Link>
         </ul>

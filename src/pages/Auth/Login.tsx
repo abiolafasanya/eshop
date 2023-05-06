@@ -1,5 +1,4 @@
 import { FormEvent, useEffect, useState } from 'react';
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import Axios from '../../api/Axios';
 import { Link, redirect, useLocation, useNavigate } from 'react-router-dom';
 import styles from './Login.module.scss';

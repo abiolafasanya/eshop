@@ -1,5 +1,4 @@
-import { formatCurrency } from '../../../utils/formatter';
-import styles from '../Home.module.scss';
+import styles from '../Products.module.scss';
 
 const Subscribe = () => {
   return (
@@ -8,7 +7,7 @@ const Subscribe = () => {
       <div className={styles.content}>
         <article>
           <h3>Subscribe To Newsletter</h3>
-          <p>And get {formatCurrency(20)} coupon for free shopping</p>
+          <p>And get $20 coupon for free shopping</p>
         </article>
         <form>
             <input type="email" id='email'/>

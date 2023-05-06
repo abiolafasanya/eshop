@@ -9,7 +9,7 @@ const Mobilenav = () => {
   return (
     <div className={`${styles.mobile_ul} ${openMenu ? styles.visible : ''}`}>
       <ul className={''}>
-      <Link to="/product">Product</Link>
+      <Link to="/products">Product</Link>
       <Link to="/categories">Categories</Link>
       <Link to="">Contact</Link>
     </ul>
