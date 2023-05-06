@@ -82,18 +82,17 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 1rem;
 
       .card_item {
-        width: 320px;
-        @include box-shadow();
+        width: 25%;
+      @include box-shadow();
 
         @include mobile() {
           width: 100%;
         }
-
         background-color: $white;
-        padding: 2rem;
+        padding: 1rem;
         margin: 10px 0;
         border-radius: 5px;
 
@@ -101,9 +100,12 @@
           font-weight: 500;
           font-size: 16px;
           height: 50px;
-        }
+          text-overflow: ellipsis;
+          white-space: nowrap;
 
-        center h3 {
+        }
+        center
+        h3 {
           font-weight: 600;
           font-size: 16px;
           line-height: 1.6;
@@ -111,9 +113,8 @@
 
         .bottom {
           display: flex;
-          justify-content: space-between;
+          gap: 1rem;
           align-items: center;
-          margin-top: 1rem;
 
           button {
             background-color: $primary;
@@ -128,15 +129,15 @@
           }
         }
       }
-
+      
       img {
         width: 100%;
         min-height: 250px;
         max-height: 250px;
         padding: 1rem;
         object-fit: cover;
-        object-position: center;
-        transition: transform 0.5s;
+         object-position: center;
+         transition: transform 0.5s;
 
         &:hover {
           transform: scale(1.1);

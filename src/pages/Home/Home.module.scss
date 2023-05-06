@@ -17,7 +17,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5rem;
+    gap: 2rem;
+    height: 550px;
     // min-height: 80vh;
     @include mobile() {
       flex-direction: column;
@@ -30,9 +31,22 @@
     
     .section1 {
       width: 40%;
+      display: grid;
+      flex-wrap: nowrap;
+      max-height: 440px;
+
+      img {
+        width: 100%;
+        min-width: 200px;
+        max-height: 210px;
+        border-radius: 1rem;
+        object-fit: cover;
+        object-position: center;
+      }
 
       @include mobile() {
         width: 100%;
+        display: none;
       }
       @include tablet() {
         width: 100%;
@@ -65,7 +79,8 @@
       }
 
       img {
-        border-radius: 5rem 0 5rem 0;
+        // border-radius: 5rem 0 5rem 0;
+        border-radius: 1rem;
         width: 100%;
         max-height: 440px;
         object-fit: cover;

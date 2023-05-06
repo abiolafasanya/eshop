@@ -118,7 +118,7 @@ const Featured = () => {
       </section>
       <section className={styles.product}>
         {products && products.length > 0 ? (
-          products?.map((product) => (
+          products.map((product) => (
             <Card key={product.id} className={styles.card_item}>
               <CardMedia
                 component="img"
@@ -126,14 +126,10 @@ const Featured = () => {
                 image={product.image}
                 alt={product.title}
               />
-              <Typography
-                component={'h2'}
-                fontWeight={600}
-                // fontSize={16}
-              >
+              <Typography component={'h2'} fontWeight={600}>
                 {product.title}
               </Typography>
-              <div>
+              <div className={styles.bottom}>
                 <Typography
                   component={'h3'}
                   fontWeight={600}
@@ -143,24 +139,15 @@ const Featured = () => {
                 >
                   {formatCurrency(product.price * 100)}
                 </Typography>
-                <Typography
-                  component={'h3'}
-                  fontWeight={600}
-                  marginTop={2}
-                  marginBottom={2}
-                  fontSize={14}
+                <Button
+                  variant="contained"
+                  fullWidth={true}
+                  startIcon={<FaShoppingCart />}
+                  onClick={() => addCartHandler(product)}
                 >
-                  {formatCurrency(product.rating.rate * 100)}
-                </Typography>
+                  Add to Cart
+                </Button>
               </div>
-              <Button
-                variant="contained"
-                fullWidth={true}
-                startIcon={<FaShoppingCart />}
-                onClick={() => addCartHandler(product)}
-              >
-                Add to Cart
-              </Button>
             </Card>
           ))
         ) : (
